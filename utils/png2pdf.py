@@ -1,6 +1,8 @@
 import os
 import img2pdf
 
+path = '/Users/pingopengo/Code/PyCharm/w-bibox/output/ItBerufe1012'
+
 def combine_images_to_pdf(directory, output_filename):
     # Get list of all PNG files in the directory
     all_files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
@@ -20,4 +22,5 @@ def combine_images_to_pdf(directory, output_filename):
     except Exception as e:
         print(f"Error generating PDF: {e}")
 
+combine_images_to_pdf(path, "../output/IT Berufe LF 10-12.pdf")
 

@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
-
+import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utils.login import login_to_site
@@ -27,7 +27,11 @@ def main():
     # Navigate to the book manually, scan the pages
     image_list = scan_pages(browser)
 
-    combine_images_to_pdf(image_list, "../output/IT Berufe LF 10-12.pdf")
+    # insert delay to avoid combination of images before all images are saved
+    time.sleep(300)
+
+    # Combine the images to a PDF
+    # combine_images_to_pdf(image_list, "../output/IT Berufe LF 10-12.pdf")
 
 
 if __name__ == "__main__":
