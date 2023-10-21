@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from utils.login import login_to_site
 from utils.scanner import scan_pages
 from utils.secrets import user, pw
-
+from utils.png2pdf import combine_images_to_pdf
 
 def main():
     options = Options()
@@ -27,9 +27,7 @@ def main():
     # Navigate to the book manually, scan the pages
     image_list = scan_pages(browser)
 
-    # After all pages are captured, save them as a single PDF
-    image_list[0].save("output/book.pdf", save_all=True, append_images=image_list[1:])
-    browser.quit()
+    combine_images_to_pdf(image_list, "../output/IT Berufe LF 10-12.pdf")
 
 
 if __name__ == "__main__":
